@@ -10,9 +10,10 @@ import (
 	"strings"
 	"time"
 
-	wireguardexporter "github.com/mdlayher/wireguard_exporter"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
+	wireguardcollector "github.com/yxxhero/wireguard_exporter/pkg/collector"
+	wireguardparse "github.com/yxxhero/wireguard_exporter/pkg/parse"
 	"golang.zx2c4.com/wireguard/wgctrl"
 )
 
@@ -59,7 +60,7 @@ func main() {
 		}
 		defer f.Close()
 
-		names, err := wireguardexporter.ParsePeers(f)
+		names, err := wireguardparse.ParsePeers(f)
 		if err != nil {
 			log.Fatalf("failed to parse peer names file: %v", err)
 		}
@@ -74,7 +75,7 @@ func main() {
 	}
 
 	// Make Prometheus client aware of our collector.
-	c := wireguardexporter.New(client.Devices, peerNames)
+	c := wireguardcollector.New(client.Devices, peerNames)
 	prometheus.MustRegister(c)
 
 	// Set up HTTP handler for metrics.

@@ -1,11 +1,10 @@
-package wireguardexporter_test
+package parse
 
 import (
 	"strings"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	wireguardexporter "github.com/mdlayher/wireguard_exporter"
 )
 
 func TestParsePeers(t *testing.T) {
@@ -62,7 +61,7 @@ func TestParsePeers(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			peers, err := wireguardexporter.ParsePeers(strings.NewReader(tt.s))
+			peers, err := ParsePeers(strings.NewReader(tt.s))
 			if tt.ok && err != nil {
 				t.Fatalf("failed to parse peer mappings: %v", err)
 			}

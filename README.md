@@ -1,4 +1,4 @@
-# wireguard_exporter [![builds.sr.ht status](https://builds.sr.ht/~mdlayher/wireguard_exporter.svg)](https://builds.sr.ht/~mdlayher/wireguard_exporter?) [![GoDoc](https://godoc.org/github.com/mdlayher/wireguard_exporter?status.svg)](https://godoc.org/github.com/mdlayher/wireguard_exporter) [![Go Report Card](https://goreportcard.com/badge/github.com/mdlayher/wireguard_exporter)](https://goreportcard.com/report/github.com/mdlayher/wireguard_exporter)
+# wireguard_exporter [![builds.sr.ht status](https://builds.sr.ht/~mdlayher/wireguard_exporter.svg)](https://builds.sr.ht/~mdlayher/wireguard_exporter?) [![GoDoc](https://godoc.org/github.com/yxxhero/wireguard_exporter?status.svg)](https://godoc.org/github.com/yxxhero/wireguard_exporter) [![Go Report Card](https://goreportcard.com/badge/github.com/yxxhero/wireguard_exporter)](https://goreportcard.com/report/github.com/yxxhero/wireguard_exporter)
 
 Command `wireguard_exporter` implements a Prometheus exporter for WireGuard
 devices. MIT Licensed.
