@@ -1,4 +1,4 @@
-package wireguardexporter
+package parse
 
 import (
 	"fmt"
@@ -19,7 +19,7 @@ type file struct {
 // ParsePeers parses a TOML mapping of peer public keys to friendly names.
 func ParsePeers(r io.Reader) (map[string]string, error) {
 	var f file
-	md, err := toml.DecodeReader(r, &f)
+	md, err := toml.NewDecoder(r).Decode(&f)
 	if err != nil {
 		return nil, err
 	}
